@@ -6,6 +6,8 @@ __pycache__/
 # C extensions
 *.so
 
+*.DS_Store
+
 # Data. This data can be found on AWS
 Data
 /Users/zakijefferson/code/Threat-Detection/Image-Classification/Data
