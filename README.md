@@ -22,6 +22,12 @@ This work helps approach the problem to find a solution.
   - [Saved Model Weights](https://github.com/jeffersonzaki/Threat-Detection/blob/master/Image-Classification/specified_weights.hdf5) - A file of the weights from the model that performed the best.
 
   - [Web Driver](https://github.com/jeffersonzaki/Threat-Detection/blob/master/Image-Classification/web_driver.ipynb) - Used to scrape automatically scrape images from the internet using chromedriver and selenium.
+  
+- [Business Plan](https://github.com/jeffersonzaki/Threat-Detection/blob/master/Business%20Plan.pdf) - Contains a pdf of the business plan to put this idea into action.
+  
+- [Gitignore](https://github.com/jeffersonzaki/Threat-Detection/blob/master/.gitignore) - Contains files that were ignored to github.
+ 
+- [ReadME](https://github.com/jeffersonzaki/Threat-Detection/blob/master/README.md) - Shows a summary of the repo.
 
 ## Project Member
 [Zaki Jefferson](https://github.com/jeffersonzaki)
