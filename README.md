@@ -10,8 +10,6 @@ This work helps approach the problem to find a solution.
 
 - [Python Script](https://github.com/jeffersonzaki/Threat-Detection/tree/master/Image-Classification/Script) - Contains a script that accesss the contents of a bucket. This script was then connected to crontab in order to continue to refresh the AWS page, because of an 2 hour access time.
 
-- [Gitignore](https://github.com/jeffersonzaki/Threat-Detection/blob/master/Image-Classification/.gitignore) - Contains ignored files.
-
 - [Augmented Convolutional Neural Network](https://github.com/jeffersonzaki/Threat-Detection/blob/master/Image-Classification/augmented_cnn.ipynb) - Contains a CNN that was ran with augmented data in an attempt to imrove an already existing accuarcy score.
 
 - [Specified Convolutional Neural Network](https://github.com/jeffersonzaki/Threat-Detection/blob/master/Image-Classification/augmented_cnn.ipynb) - Contains the main train, test, and validation scores from the original CNN models.
