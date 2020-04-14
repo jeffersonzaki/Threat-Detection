@@ -6,7 +6,7 @@ We can lower casualties in mass shootings earlier by having a computer do the wo
 This work helps approach the problem to find a solution.
 
 <p align="center">
-  <img width="500" height="500" src="https://media.giphy.com/media/VcxJRTfa2A0UKthWEx/giphy.gif">
+  <img src="https://media.giphy.com/media/VcxJRTfa2A0UKthWEx/giphy.gif">
 </p>
 
 ## Summary Contents
