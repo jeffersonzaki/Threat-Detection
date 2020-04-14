@@ -54,4 +54,4 @@ AIVision is a start up company that's looking to make a mark by developing threa
 ALL DONE ON AWS
 
 ## Data
-[Images](https://github.com/jeffersonzaki/Threat-Detection/tree/master/Image-Classification/Data-Images) were scrapped from the internet using selenium
+[Images](https://github.com/jeffersonzaki/Threat-Detection/tree/master/Image-Classification/Data-Images) of firearms were scrapped from the internet using selenium
