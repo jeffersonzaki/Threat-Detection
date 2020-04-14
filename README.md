@@ -33,7 +33,7 @@ This work helps approach the problem to find a solution.
 [Zaki Jefferson](https://github.com/jeffersonzaki)
 
 ## Project Scenario
-AIVision, a start up company, that's looking to make a mark by developing threat detection technology. Their business model is to retrieve a licensing deal with another company and continue to add value to their IP to make it better as the years progress.
+AIVision is a start up company that's looking to make a mark by developing threat detection technology. Their business model is to retrieve a licensing deal with another company and continue to add value to their IP to make it better as the years progress.
 
 ## Responsibilities
 [Zaki Jefferson](https://github.com/jeffersonzaki)
