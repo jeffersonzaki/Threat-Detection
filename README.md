@@ -5,6 +5,8 @@ We can lower casualties in mass shootings earlier by having a computer do the wo
 
 This work helps approach the problem to find a solution.
 
+![Demo](https://giphy.com/gifs/VcxJRTfa2A0UKthWEx/html5)
+
 ## Summary Contents
 
 - [Image Classification](https://github.com/jeffersonzaki/Threat-Detection/tree/master/Image-Classification) - Contains all of the data and notebooks that were wokred on.
