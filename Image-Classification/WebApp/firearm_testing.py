@@ -1,9 +1,6 @@
-import os
 import numpy as np
-from keras.preprocessing.image import ImageDataGenerator, load_img, img_to_array
-from keras.models import Sequential, load_model
-import time
-from keras import backend as K
+from keras.preprocessing.image import load_img, img_to_array
+from keras.models import load_model
 
 # Image Classes
 classes = ['Assault Rifle', 'Handgun']

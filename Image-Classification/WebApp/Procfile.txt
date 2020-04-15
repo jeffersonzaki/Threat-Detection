@@ -1,0 +1,1 @@
+web: sh setup.shell && streamlit run firearm.py
