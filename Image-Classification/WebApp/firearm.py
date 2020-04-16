@@ -35,7 +35,7 @@ def firearm_detection():
     the selected image through the model
     and recieve results on the type of class.
     """
-    model_1_path = '/Users/zakijefferson/code/Threat-Detection/Image-Classification/specified_model.hdf5'
+    model_1_path = '/Users/zakijefferson/code/Threat-Detection/Image-Classification/model_3.hdf5'
     model_1 = load_model(model_1_path)
     return model_1
 

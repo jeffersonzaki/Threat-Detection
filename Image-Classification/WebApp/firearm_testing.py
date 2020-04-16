@@ -3,7 +3,7 @@ from keras.preprocessing.image import load_img, img_to_array
 from keras.models import load_model
 
 # Image Classes
-classes = ['Assault Rifle', 'Handgun']
+classes = ['Assault Rifle', 'Handgun', 'No Firearm']
 
 
 # Prediction Function
@@ -14,7 +14,7 @@ def predict(model, path):
     img = np.expand_dims(img, axis=0)  # Expanding dimensions
     predict = model.predict(img)  # Predicting the image
     pred_name = classes[np.argmax(predict)]  # Predicting the name
-    prediction = str(round(predict.max() * 100, 2))
+    prediction = str(round(predict.max() * 100, 3))
     return prediction + '%', pred_name
 
 
