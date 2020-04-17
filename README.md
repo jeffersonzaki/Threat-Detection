@@ -49,7 +49,7 @@ AIVision is a start up company that's looking to make a mark by developing threa
 - Retrieve image data
 - Develop a variety of Convolutional Neural Networks
 - Augment data
-- Develp web app
+- Develp web app - AWS EC2
 - Clean notebook
 - Develop presentation
 
