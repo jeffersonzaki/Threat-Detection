@@ -59,4 +59,4 @@ ALL DONE ON AWS
 - [Web App Repo](https://github.com/jeffersonzaki/Threat-Detection-Web-App) - This is a separate repository for the web app designed for this project.
 
 ## Data
-[Images](https://github.com/jeffersonzaki/Threat-Detection/tree/master/Image-Classification/Data-Images) of firearms were scrapped from the internet using selenium
+- [Images](https://github.com/jeffersonzaki/Threat-Detection/tree/master/Image-Classification/Data-Images) of firearms were scrapped from the internet using selenium
