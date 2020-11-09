@@ -55,6 +55,7 @@ WORKDIR /Users/zakijefferson/code/Threat-Detection
 
 FROM tensorflow/tensorflow:latest-gpu-jupyter as tensorflow
 WORKDIR /Users/zakijefferson/code/Threat-Detection
+# Combining docker images
 COPY --from=base /Users/zakijefferson/code/Threat-Detection .
 
 FROM gw000/keras:2.1.4-py3-tf-gpu as keras
@@ -62,12 +63,16 @@ WORKDIR /Users/zakijefferson/code/Threat-Detection
 COPY --from=base /Users/zakijefferson/code/Threat-Detection .
 COPY --from=tensorflow /Users/zakijefferson/code/Threat-Detection .
 
-
 FROM spmallick/opencv-docker:opencv as opencv
 WORKDIR /Users/zakijefferson/code/Threat-Detection
 COPY --from=base /Users/zakijefferson/code/Threat-Detection .
 COPY --from=tensorflow /Users/zakijefferson/code/Threat-Detection .
 COPY --from=keras /Users/zakijefferson/code/Threat-Detection .
+
+# Copy all the above into container
+COPY . .
+
+RUN pip install jupyter
 
 # Add Tini. Tini operates as a process subreaper for jupyter. This prevents kernel crashes.
 ENV TINI_VERSION v0.6.0
