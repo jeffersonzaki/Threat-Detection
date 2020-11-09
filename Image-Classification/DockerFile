@@ -1,23 +1,73 @@
-FROM python:3.9-buster
+# FROM python:3.8-buster
+# FROM tensorflow/tensorflow:latest-gpu-jupyter
+# FROM spmallick/opencv-docker:opencv
+# FROM gw000/keras:2.1.4-py3-tf-gpu
+
+# RUN pip3 -q install pip --upgrade
+# # RUN set -xe \
+# #     && apt-get update \
+# #     && apt-get install python-pip
+# # RUN pip install --upgrade pip
+
+# RUN pip3 install numpy pandas sklearn matplotlib seaborn jupyter
+	
+# # Install Open CV - Warning, this takes absolutely forever
+# # RUN cd ~ && git clone https://github.com/Itseez/opencv.git && \ 
+# #     cd opencv && \
+# #     git checkout 3.0.0 && \
+# #     cd ~ && git clone https://github.com/Itseez/opencv_contrib.git && \
+# #     cd opencv_contrib && \
+# #     git checkout 3.0.0 && \
+# #     cd ~/opencv && mkdir -p build && cd build && \
+# #     cmake -D CMAKE_BUILD_TYPE=RELEASE \
+# #     -D CMAKE_INSTALL_PREFIX=/usr/local \ 
+# #     -D INSTALL_C_EXAMPLES=ON \ 
+# #     -D INSTALL_PYTHON_EXAMPLES=ON \ 
+# #     -D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules \ 
+# #     -D BUILD_EXAMPLES=OFF .. && \
+# #     make -j4 && \
+# #     make install && \ 
+# #     ldconfig
+	
+
+
+# WORKDIR /Users/zakijefferson/code/Threat-Detection
+# COPY . .
+
+# RUN pip install jupyter
+
+# WORKDIR /Users/zakijefferson/code/Threat-Detection
+
+# # Add Tini. Tini operates as a process subreaper for jupyter. This prevents kernel crashes.
+# ENV TINI_VERSION v0.6.0
+# ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
+# RUN chmod +x /usr/bin/tini
+# ENTRYPOINT ["/usr/bin/tini", "--"]
+
+# CMD ["jupyter", "notebook", "--port=8889", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
+
+
+FROM python:3.8-buster as base
 RUN pip3 -q install pip --upgrade
-# RUN set -xe \
-#     && apt-get update \
-#     && apt-get install python-pip
-# RUN pip install --upgrade pip
-
-RUN pip3 install tensorflow && \
-	pip3 install numpy pandas sklearn matplotlib seaborn jupyter && \
-	pip3 install keras && \
-	pip3 install opencv-python && \
-	pip3 install random && \
-	pip3 install imblearn
-
+RUN pip3 install numpy pandas sklearn matplotlib seaborn jupyter && \
+	pip3 install random2
 WORKDIR /Users/zakijefferson/code/Threat-Detection
-COPY . .
 
-RUN pip install jupyter
-
+FROM tensorflow/tensorflow:latest-gpu-jupyter as tensorflow
 WORKDIR /Users/zakijefferson/code/Threat-Detection
+COPY --from=base /Users/zakijefferson/code/Threat-Detection .
+
+FROM gw000/keras:2.1.4-py3-tf-gpu as keras
+WORKDIR /Users/zakijefferson/code/Threat-Detection
+COPY --from=base /Users/zakijefferson/code/Threat-Detection .
+COPY --from=tensorflow /Users/zakijefferson/code/Threat-Detection .
+
+
+FROM spmallick/opencv-docker:opencv as opencv
+WORKDIR /Users/zakijefferson/code/Threat-Detection
+COPY --from=base /Users/zakijefferson/code/Threat-Detection .
+COPY --from=tensorflow /Users/zakijefferson/code/Threat-Detection .
+COPY --from=keras /Users/zakijefferson/code/Threat-Detection .
 
 # Add Tini. Tini operates as a process subreaper for jupyter. This prevents kernel crashes.
 ENV TINI_VERSION v0.6.0
@@ -25,4 +75,4 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/
 RUN chmod +x /usr/bin/tini
 ENTRYPOINT ["/usr/bin/tini", "--"]
 
-CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
+CMD ["jupyter", "notebook", "--port=8889", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
