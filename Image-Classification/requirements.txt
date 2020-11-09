@@ -1,0 +1,9 @@
+numpy
+keras
+tensorflow
+pandas
+opencv-python
+seaborn
+matplotlib
+random
+time
