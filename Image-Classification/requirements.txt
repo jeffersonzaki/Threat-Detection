@@ -1,9 +1,7 @@
 numpy
 keras
-tensorflow
+tensorflow>=2.1.0
 pandas
-opencv-python
+opencv-contrib-python
 seaborn
 matplotlib
-random
-time
