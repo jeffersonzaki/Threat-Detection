@@ -1,93 +1,4 @@
-# FROM python:3.9.0-buster as base
-
-# RUN pip3 -q install pip --upgrade
-# RUN pip install --upgrade pip
-# RUN python3 -m pip install --upgrade pip
-
-# RUN pip3 install conda
-# RUN conda install tensorflow
-# RUN conda install keras
-
-# RUN pip3 install numpy && \
-# 	pip3 install pandas && \
-# 	pip3 install sklearn && \
-# 	pip3 install matplotlib && \
-# 	pip3 install seaborn jupyter && \
-# 	pip3 install random2 && \
-# # 	pip3 install tensorflow && \
-# # 	pip3 install keras && \
-# 	pip3 install opencv-python
-# RUN apt-get update ##[edited]
-# RUN apt-get install 'ffmpeg'\
-#     'libsm6'\ 
-#     'libxext6'  -y
-# RUN pip3 install -U numpy
-
-# WORKDIR /Users/zakijefferson/code/Threat-Detection
-
-
-
-
-# FROM tensorflow/tensorflow:latest-gpu-jupyter as tensorflow
-# RUN pip3 install tensorflow
-# WORKDIR /Users/zakijefferson/code/Threat-Detection
-# # Combining docker images
-# COPY --from=base /Users/zakijefferson/code/Threat-Detection .
-
-
-# FROM gw000/keras:2.1.4-py3-tf-gpu as keras
-# RUN pip3 install keras
-# WORKDIR /Users/zakijefferson/code/Threat-Detection
-# COPY --from=base /Users/zakijefferson/code/Threat-Detection .
-# COPY --from=tensorflow /Users/zakijefferson/code/Threat-Detection .
-
-
-# FROM spmallick/opencv-docker:opencv as opencv
-# RUN pip3 install opencv-python
-# WORKDIR /Users/zakijefferson/code/Threat-Detection
-# COPY --from=base /Users/zakijefferson/code/Threat-Detection .
-# COPY --from=tensorflow /Users/zakijefferson/code/Threat-Detection .
-# COPY --from=keras /Users/zakijefferson/code/Threat-Detection .
-
-
-
-
-# FROM continuumio/anaconda3
-# RUN pip3 -q install pip --upgrade
-# RUN pip install --upgrade pip
-# RUN python3 -m pip install --upgrade pip
-
-# RUN /opt/conda/bin/conda update -n base -c defaults conda && \
-#     /opt/conda/bin/conda install python=3.9.0 && \
-#     /opt/conda/bin/conda install anaconda-client && \
-#     /opt/conda/bin/conda install jupyter -y && \
-#     /opt/conda/bin/conda install --channel https://conda.anaconda.org/menpo opencv3 -y && \
-#     /opt/conda/bin/conda install numpy pandas scikit-learn matplotlib seaborn h5py -y && \
-#     /opt/conda/bin/conda upgrade dask && \
-# 	/opt/conda/bin/conda install tensorflow && \
-# 	/opt/conda/bin/conda install keras && \
-#     pip install tensorflow imutils
-	
-# RUN pip3 install numpy && \
-# 	pip3 install pandas && \
-# 	pip3 install sklearn && \
-# 	pip3 install matplotlib && \
-# 	pip3 install seaborn jupyter && \
-# 	pip3 install random2 && \
-# # 	pip3 install tensorflow && \
-# # 	pip3 install keras && \
-# 	pip3 install opencv-python
-# RUN apt-get update ##[edited]
-# RUN apt-get install 'ffmpeg'\
-#     'libsm6'\ 
-#     'libxext6'  -y
-# RUN pip3 install -U numpy
-
-# WORKDIR /Users/zakijefferson/code/Threat-Detection
-
-
-
-FROM python:3.9.0-buster
+FROM python:3.8.0-buster
 RUN pip -q install pip --upgrade
 WORKDIR /Users/zakijefferson/code/Threat-Detection
 COPY . .
@@ -101,15 +12,10 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
+RUN apt-get update
+RUN apt-get install -qqy x11-apps
+
 RUN pip install jupyter
-
-RUN conda activate env
-
-# Add Tini. Tini operates as a process subreaper for jupyter. This prevents kernel crashes.
-ENV TINI_VERSION v0.6.0
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
-RUN chmod +x /usr/bin/tini
-ENTRYPOINT ["/usr/bin/tini", "--"]
 
 CMD ["jupyter", "notebook", "--port=8889", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
 
