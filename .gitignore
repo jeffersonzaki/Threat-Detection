@@ -7,10 +7,18 @@ __pycache__/
 *.so
 
 *.DS_Store
+.DS_Store
+*.ipynb_checkpoints
+.ipynb_checkpoints
 
 # Data. This data can be found on AWS
 Data
 /Users/zakijefferson/code/Threat-Detection/Image-Classification/Data
+
+*.DS_Store
+.DS_Store
+*.ipynb_checkpoints
+.ipynb_checkpoints
 
 # Distribution / packaging
 .Python
