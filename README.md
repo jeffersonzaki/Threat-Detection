@@ -5,8 +5,6 @@ We can lower casualties in mass shootings earlier by having a computer do the wo
 
 This work helps approach the problem to find a solution.
 
-DEMO: https://bit.ly/threat-detection-py <-- Link to web app
-
 <p align="center">
   <img src="https://media.giphy.com/media/VcxJRTfa2A0UKthWEx/giphy.gif">
 </p>
